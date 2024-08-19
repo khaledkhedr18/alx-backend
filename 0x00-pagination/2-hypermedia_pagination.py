@@ -56,29 +56,17 @@ class Server:
         return dataset[start_index: end_index]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+        """Retrieves information about a page.
         """
-        Retrieves a specific page of data from the dataset with hypermedia
-        controls.
-
-        Args:
-            page (int): The page number to retrieve. Defaults to 1.
-            page_size (int): The number of items per page. Defaults to 10.
-
-        Returns:
-            dict: A dictionary containing data for the specified page
-            and hypermedia controls.
-        """
-        data = self.get_page(page, page_size)
-        total_pages = math.ceil(len(self.__dataset) / page_size)
+        page_data = self.get_page(page, page_size)
         start, end = index_range(page, page_size)
-        next_page = page + 1 if end < len(self.__dataset) else None
-        prev_page = page - 1 if start > 0 else None
-        myDic = {
-            'page_size': len(data),
+        total_pages = math.ceil(len(self.__dataset) / page_size)
+        page_info = {
+            'page_size': len(page_data),
             'page': page,
-            'data': data,
-            'next_page': next_page,
-            'prev': prev_page,
-            'total_pages': total_pages
+            'data': page_data,
+            'next_page': page + 1 if end < len(self.__dataset) else None,
+            'prev_page': page - 1 if start > 0 else None,
+            'total_pages': total_pages,
         }
-        return myDic
+        return page_info
