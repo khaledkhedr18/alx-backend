@@ -2,7 +2,7 @@
 '''Task 2: Simple Pagination'''
 import csv
 import math
-from typing import List
+from typing import List, Dict
 
 
 def index_range(page: int, page_size: int) -> tuple:
@@ -55,7 +55,7 @@ class Server:
             end_index = len(dataset)
         return dataset[start_index: end_index]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         Retrieves a specific page of data from the dataset with hypermedia
         controls.
