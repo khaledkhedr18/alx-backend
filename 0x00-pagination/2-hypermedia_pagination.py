@@ -56,6 +56,18 @@ class Server:
         return dataset[start_index: end_index]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+        """
+        Retrieves a specific page of data from the dataset with hypermedia
+        controls.
+
+        Args:
+            page (int): The page number to retrieve. Defaults to 1.
+            page_size (int): The number of items per page. Defaults to 10.
+
+        Returns:
+            dict: A dictionary containing data for the specified page
+            and hypermedia controls.
+        """
         data = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
         next_page = page + 1 if page < total_pages else None
