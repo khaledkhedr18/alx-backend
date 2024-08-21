@@ -6,6 +6,16 @@ from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
+    """
+    LIFOCache is a Last In First Out caching system.
+
+    It stores data in a dictionary and keeps track of the order of insertion
+    using a list. When the cache is full, the oldest item is removed.
+
+    Attributes:
+        None
+    """
+
     def __init__(self):
         '''Initialize.'''
         super().__init__()
