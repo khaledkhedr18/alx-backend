@@ -29,17 +29,17 @@ def get_index() -> str:
     return render_template('1-index.html')
 
 
-def get_locale():
-    """
-    Retrieves the best matching locale from the request's Accept-Language header.
+# def get_locale():
+#     """
+#     Retrieves the best matching locale from the request's Accept-Language header.
 
-    Args:
-        None
+#     Args:
+#         None
 
-    Returns:
-        str: The best matching locale.
-    """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+#     Returns:
+#         str: The best matching locale.
+#     """
+#     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == "__main__":
