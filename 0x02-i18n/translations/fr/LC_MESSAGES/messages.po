@@ -1,3 +1,8 @@
+# French translations for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+
 msgid "home_title"
 msgstr "Bienvenue chez Holberton"
 
