@@ -36,7 +36,7 @@ def get_locale():
     Returns:
         The best matching locale from the list of available languages.
     """
-    return request.accept_languages.best_match(['LANGUAGES'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == "__main__":
