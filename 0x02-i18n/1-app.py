@@ -1,20 +1,32 @@
 #!/usr/bin/env python3
 '''Task 0's Module'''
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_babel import Babel
 
 
 class Config:
     '''Simple Config Class'''
     LANGUAGES = ['en', 'fr']
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
 app = Flask(__name__)
 app.config.from_object(Config)
+app.url_map.strict_slashes = False
 
 babel = Babel(app)
-babel.default_locale = app.config['BABEL_DEFAULT_LOCALE']
-babel.default_timezone = app.config['BABEL_DEFAULT_TIMEZONE']
+
+
+@app.route('/')
+def get_index():
+    """
+    Defines a route for the root URL ('/') of the web application.
+
+    Returns:
+        The rendered HTML template located at '1-index.html'.
+    """
+    return render_template('1-index.html')
 
 
 def get_locale():
@@ -30,5 +42,5 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
