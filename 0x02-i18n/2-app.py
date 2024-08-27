@@ -30,6 +30,12 @@ def get_index() -> str:
 
 @babel.localeselector
 def get_locale():
+    """
+    Selects the locale for the current request based on the Accept-Language header.
+
+    Returns:
+        The best matching locale from the list of available languages.
+    """
     return request.accept_languages.best_match(['LANGUAGES'])
 
 
