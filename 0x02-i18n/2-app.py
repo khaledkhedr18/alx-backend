@@ -25,7 +25,7 @@ def get_index() -> str:
     Returns:
         The rendered HTML template located at '1-index.html'.
     """
-    return render_template('1-index.html')
+    return render_template('2-index.html')
 
 
 @babel.localeselector
