@@ -29,7 +29,7 @@ def get_index() -> str:
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """
     Selects the locale for the current request based on the Accept-Language header.
 
