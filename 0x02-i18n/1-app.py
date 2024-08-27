@@ -19,7 +19,7 @@ babel = Babel(app)
 
 
 @app.route('/')
-def get_index():
+def get_index() -> str:
     """
     Defines a route for the root URL ('/') of the web application.
 
